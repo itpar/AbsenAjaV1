@@ -10,7 +10,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -188,11 +187,6 @@ class _HomeScreenState extends State<HomeScreen> {
         var data = jsonDecode(prefs.getString(PREFS_USER_KEY));
         _user = User.fromJson(data);
       }
-      OneSignal.shared.setExternalUserId(_user.id.toString());
-      setState(() {
-        user = _user;
-        _countAttendancePercentage();
-      });
     } catch (e) {
       print(e.toString());
     } finally {

@@ -60,7 +60,6 @@ dependencies:
   flare_flutter: ^2.0.6
   introduction_screen:
   flutter_launcher_icons:
-  onesignal_flutter: ^2.6.2
   flutter_local_notifications:
   cached_network_image:
   photo_view:

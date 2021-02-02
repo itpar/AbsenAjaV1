@@ -8,7 +8,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:spo_balaesang/network/api.dart';
 import 'package:spo_balaesang/repositories/data_repository.dart';
@@ -26,14 +25,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
   Intl.defaultLocale = 'id_ID';
-  OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
-  OneSignal.shared.setLocationShared(true);
-  OneSignal.shared.init(FlutterConfig.get("ONE_SIGNAL_APP_ID"), iOSSettings: {
-    OSiOSSettings.autoPrompt: false,
-    OSiOSSettings.inAppLaunchUrl: false
-  });
-  OneSignal.shared
-      .setInFocusDisplayType(OSNotificationDisplayType.notification);
 
   var initializedSettingsAndroid =
       AndroidInitializationSettings('ic_stat_onesignal_default');

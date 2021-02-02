@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -94,7 +93,6 @@ class _ApplicationScreenState extends State<ApplicationScreen> {
                     prefs.remove(PREFS_USER_KEY);
                     prefs.remove(PREFS_ALARM_KEY);
                     pd.hide();
-                    OneSignal.shared.removeExternalUserId();
                     Get.off(LoginScreen());
                   }
                 },

@@ -602,12 +602,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 2.0),
-                      CountdownTimer(
+                     CountdownTimer(
                         onEnd: () {
                           _getUser();
                         },
                         endTime: checkTime(),
-                        emptyWidget: AutoSizeText(
+                        endWidget: AutoSizeText(
                           'Semua absen hari ini telah selesai',
                           maxFontSize: 12.0,
                           minFontSize: 10.0,

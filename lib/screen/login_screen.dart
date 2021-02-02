@@ -129,11 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: <Widget>[
                   Image.asset(
                     'assets/logo/logo.png',
-                    width: 200,
-                  ),
-                  Text(
-                    'Sistem Absensi Pegawai',
-                    style: TextStyle(fontSize: 12.0, color: Colors.white),
+                    width: 150,
                   ),
                 ],
               ),
@@ -197,58 +193,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderRadius: BorderRadius.circular(10.0),
                             child: InkWell(
                               borderRadius: BorderRadius.circular(10.0),
-                              onTap: _isLoading
-                                  ? null
-                                  : () async {
-                                      final SharedPreferences prefs =
-                                          await SharedPreferences.getInstance();
-                                      setState(() {
-                                        _isLoading = true;
-                                      });
-                                      final String _deviceName =
-                                          await getDeviceInfo();
-                                      final Map<String, dynamic> data =
-                                          <String, dynamic>{
-                                        'phone': _phoneController.value.text,
-                                        'password':
-                                            _passwordController.value.text,
-                                        'device_name': _deviceName
-                                      };
-                                      try {
-                                        final dataRepository =
-                                            Provider.of<DataRepository>(context,
-                                                listen: false);
-                                        http.Response response =
-                                            await dataRepository.login(data);
-                                        final Map<String, dynamic> result =
-                                            jsonDecode(response.body);
-                                        if (response.statusCode == 200) {
-                                          prefs.setString(
-                                              PREFS_TOKEN_KEY,
-                                              jsonEncode(result[JSON_DATA_FIELD]
-                                                  [PREFS_TOKEN_KEY]));
-                                          prefs.setString(
-                                              PREFS_USER_KEY,
-                                              jsonEncode(
-                                                  result[JSON_DATA_FIELD]));
-                                          OneSignal.shared.setExternalUserId(
-                                              result[JSON_DATA_FIELD]
-                                                      [USER_ID_FIELD]
-                                                  .toString());
-                                          Get.off(BottomNavScreen());
-                                        } else {
-                                          showErrorDialog(result);
-                                        }
-                                      } on SocketException catch (e) {
-                                        print(e.message);
-                                      } catch (e) {
-                                        print(e);
-                                      } finally {
-                                        setState(() {
-                                          _isLoading = false;
-                                        });
-                                      }
-                                    },
+                              onTap: (){
+
+                               // // =============================== Fungsi Login agar bisa Masuk
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => BottomNavScreen()),
+                                );
+                              },
+
+                              // =======================================================
                               child: Center(
                                 child: _isLoading
                                     ? SizedBox(
@@ -266,14 +220,109 @@ class _LoginScreenState extends State<LoginScreen> {
                                             fontWeight: FontWeight.w600),
                                       ),
                               ),
+
+                              ////////////////////////////////////////////////////////////////
+                              ////////////////////////////////////////////////////////////////
+                              //                                                            //
+                              //        fungsi asli sementara menunggu finishing database   //
+                              //                                                            //
+                              ////////////////////////////////////////////////////////////////
+                              ////////////////////////////////////////////////////////////////
+                              ////////////////////////////////////////////////////////////////
+                              //
+                              // borderRadius: BorderRadius.circular(10.0),
+                              //                   onTap: _isLoading
+                              //                       ? null
+                              //                       : () async {
+                              //                     final SharedPreferences prefs =
+                              //                     await SharedPreferences.getInstance();
+                              //                     setState(() {
+                              //                       _isLoading = true;
+                              //                     });
+                              //                     final String _deviceName =
+                              //                     await getDeviceInfo();
+                              //                     final Map<String, dynamic> data =
+                              //                     <String, dynamic>{
+                              //                       'phone': _phoneController.value.text,
+                              //                       'password':
+                              //                       _passwordController.value.text,
+                              //                       'device_name': _deviceName
+                              //                     };
+                              //                     try {
+                              //                       final dataRepository =
+                              //                       Provider.of<DataRepository>(context,
+                              //                           listen: false);
+                              //                       final http.Response response =
+                              //                       await dataRepository.login(data);
+                              //                       final Map<String, dynamic> result =
+                              //                       jsonDecode(response.body)
+                              //                       as Map<String, dynamic>;
+                              //                       if (response.statusCode == 200) {
+                              //                         prefs.setString(
+                              //                             prefsTokenKey,
+                              //                             jsonEncode(result[jsonDataField]
+                              //                             [prefsTokenKey]));
+                              //                         prefs.setString(
+                              //                             prefsUserKey,
+                              //                             jsonEncode(
+                              //                                 result[jsonDataField]));
+                              //                         OneSignal.shared.setExternalUserId(
+                              //                             result[jsonDataField][userIdField]
+                              //                                 .toString());
+                              //                         Get.off(BottomNavScreen());
+                              //                       } else {
+                              //                         showErrorDialog(result);
+                              //                       }
+                              //                     } on SocketException catch (e) {
+                              //                       showErrorDialog({
+                              //                         'message': 'Kesalahan',
+                              //                         'errors': {
+                              //                           'exception': [e.message]
+                              //                         }
+                              //                       });
+                              //                     } catch (e) {
+                              //                       showErrorDialog({
+                              //                         'message': 'Kesalahan',
+                              //                         'errors': {
+                              //                           'exception': ['Terjadi kesalahan!']
+                              //                         }
+                              //                       });
+                              //                     } finally {
+                              //                       setState(() {
+                              //                         _isLoading = false;
+                              //                       });
+                              //                     }
+                              //                   },
+                              //                   child: Center(
+                              //                     child: _isLoading
+                              //                         ? const SizedBox(
+                              //                       height: 30.0,
+                              //                       width: 30.0,
+                              //                       child: CircularProgressIndicator(
+                              //                         valueColor: AlwaysStoppedAnimation(
+                              //                             Colors.white),
+                              //                       ),
+                              //                     )
+                              //                         : const Text(
+                              //                       'MASUK',
+                              //                       style: TextStyle(
+                              //                           color: Colors.white,
+                              //                           fontWeight: FontWeight.w600),
+                              //                     ),
+                              //                   ),
+                              //
+                              ////////////////////////////////////////////////////////////////////////////
+                              ////////////////////////////////////////////////////////////////////////////
+                              ////////////////////////////////////////////////////////////////////////////
+
                             ),
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             gradient: LinearGradient(
                                 colors: [
-                                  Colors.lightBlue[700],
-                                  Colors.lightBlue[900]
+                                  Colors.lightBlue[900],
+                                  Colors.lightBlue[700]
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight),
@@ -287,14 +336,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'v4.3.0',
+                      'v1.0.0 BETA TEST',
                       style: TextStyle(
                           color: Colors.grey,
                           fontSize: 12.0,
                           fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      'Sistem Absensi Pegawai Online by Banua Coders ',
+                      'Created By PAR DIGITAL ',
                       style: TextStyle(
                           color: Colors.grey,
                           fontSize: 12.0,

@@ -163,15 +163,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image.asset(
-                    'assets/launcher/icon.png',
+                    'assets/logo/pardigital.png',
                     width: Get.width * 0.3,
                   ),
                   const SizedBox(height: 4.0),
-                  Text(
-                    'SiAP Balaesang',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.w700),
-                  )
                 ],
               ),
             ),
@@ -189,12 +184,12 @@ class _SplashScreenState extends State<SplashScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       const Spacer(),
-                      Text('SiAP Balaesang',
+                      Text('AbsenAja',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700)),
                       const SizedBox(width: 2.0),
-                      Text('v4.3.0', style: TextStyle(color: Colors.white)),
+                      Text('v1.0.0 - BETA TEST', style: TextStyle(color: Colors.white)),
                       const Spacer()
                     ],
                   ),
@@ -210,17 +205,17 @@ class _SplashScreenState extends State<SplashScreen> {
                       children: <Widget>[
                         Spacer(),
                         Image.asset(
-                          'assets/logo/banuacoders.png',
-                          width: Get.width * 0.25,
-                          fit: BoxFit.fitHeight,
+                          'assets/logo/pardigital.png',
+                          width: 50.0,
+                          height: 50.0,
                         ),
                         Spacer(),
                         Text('|'),
                         Spacer(),
                         Image.asset(
-                          'assets/logo/balaesang.png',
-                          width: Get.width * 0.25,
-                          fit: BoxFit.scaleDown,
+                          'assets/logo/pardigital.png',
+                          width: 50,
+                          height: 50.0,
                         ),
                         Spacer(),
                       ],

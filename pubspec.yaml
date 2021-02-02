@@ -51,7 +51,7 @@ dependencies:
   path:
   flutter_image_compress: ^0.7.0
   qr_code_scanner: ^0.0.12
-  flutter_countdown_timer: ^1.4.0
+  flutter_countdown_timer: any
   image_picker: ^0.6.7+14
   geocoding: ^1.0.5
   progress_dialog: ^1.2.4
@@ -75,13 +75,13 @@ dev_dependencies:
 flutter_icons:
   ios: true
   android: true
-  image_path_ios: "assets/launcher/icon.png"
-  image_path_android: "assets/launcher/icon.png"
+  image_path_ios: "assets/logo/pardigital.png"
+  image_path_android: "assets/logo/pardigital.png"
   adaptive_icon_background: "assets/launcher/launcher_bg.png"
   adaptive_icon_foreground: "assets/launcher/launcher_fg.png"
 
 flutter_native_splash:
-  image: assets/launcher/icon.png
+  image: assets/logo/pardigital.png
   android_disable_fullscreen: true
   color: '6b8eef'
 
@@ -95,7 +95,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
     - assets/logo/
     - assets/flare/
     - assets/launcher/
